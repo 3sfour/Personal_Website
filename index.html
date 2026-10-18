@@ -1,4 +1,4 @@
-<title>Blank Playbook Template</title>
+<title>3sfour | Cybersecurity Portfolio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="style.css">
@@ -6,57 +6,176 @@
 <header class="top">
   <div class="gutter">
     <div class="bar">
-      <a class="logo" href="#"><i></i>Ali Al-Asfour</a>
-      <div class="search">Cybersecurity &amp; IT Support <kbd>/</kbd></div>
+      <a class="logo" href="#"><i></i>3sfour</a>
+      <div class="search-wrap">
+        <label class="search">
+          <input id="site-search" type="search" placeholder="Search this site" aria-label="Search this site" aria-controls="site-search-results" aria-expanded="false" autocomplete="off">
+          <kbd aria-hidden="true">/</kbd>
+        </label>
+        <div class="search-results" id="site-search-results" aria-label="Search results" aria-live="polite" hidden>
+          <ul></ul>
+          <p class="search-empty" hidden>No matching results.</p>
+        </div>
+      </div>
     </div>
-    <nav class="tabs"><a class="on" href="#">About</a><a href="#">Projects</a><a href="#">Experience</a></nav>
+    <nav class="tabs"><a class="on" href="#about">About</a><a href="#projects">Projects</a><a href="#ctf-machines">CTF Writeups</a><a href="#experience">Experience</a></nav>
   </div>
 </header>
 
-<div class="cover">Cybersecurity · IT Support · Networking</div>
+<div class="cover">Cybersecurity · Networking</div>
 
 <div class="gutter">
   <div class="shell">
     <nav class="toc">
-      <a class="on" href="#">About</a>
-      <a href="#">Projects</a>
-      <a href="#">Education</a>
-      <a href="#">Experience</a>
+      <a class="on" href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#ctf-machines">CTF Writeups</a>
+      <a href="#experience">Experience</a>
     </nav>
 
     <main>
-      <div class="eyebrow">About</div>
-      <h1>Ali Al-Asfour</h1>
-      <p class="lead">Security+ | A+ | Network+ | AWS Cloud Practitioner | Help Desk &amp; IT Support</p>
-      <p>I am a dual-major cybersecurity student at Southern Illinois University, building a strong foundation in IT support, networking, and information security. I hold CompTIA A+, Network+, and Security+ certifications, as well as the AWS Certified Cloud Practitioner credential. My coursework and hands-on labs have given me a solid foundation in Linux, Windows, and cybersecurity technologies. I am currently studying for the Cisco CCNA, with interests in GRC and vulnerability management.</p>
+      <div class="identity" id="about" data-searchable data-search-title="About 3sfour" data-search-section="#about">
+        <img class="avatar" src="assets/3sfour-avatar.png" alt="Black-and-white manga-style portrait">
+        <div>
+          <div class="eyebrow">About</div>
+          <h1>3sfour</h1>
+        </div>
+      </div>
+      <p class="lead" data-searchable data-search-title="Cybersecurity profile" data-search-section="#about">Security+ | A+ | Network+ | AWS Cloud Practitioner | Cybersecurity &amp; Networking</p>
+      <p data-searchable data-search-title="About and interests" data-search-section="#about">I focus on building a strong foundation in networking and information security. I hold CompTIA A+, Network+, and Security+ certifications, as well as the AWS Certified Cloud Practitioner credential. Hands-on labs have helped me build experience with Linux, Windows, and cybersecurity technologies. I am currently studying for the Cisco CCNA, with interests in GRC and vulnerability management.</p>
 
       <hr>
 
-      <h2>Projects, Education &amp; Experience</h2>
-      <p>I am pursuing a Bachelor's Degree in Information Technology at Southern Illinois University (August 2024–January 2027). My hands-on projects focus on practical IT support, networking, and Windows administration.</p>
+      <h2 id="projects" data-searchable data-search-title="Projects" data-search-section="#projects">Projects &amp; Experience</h2>
+      <p data-searchable data-search-title="Project focus" data-search-section="#projects">My hands-on projects focus on networking, Windows administration, and cybersecurity.</p>
       <div class="grid">
-        <a class="card" href="#"><div class="body"><b>Helpdesk Ticketing Environment</b><span>Built a self-hosted enterprise network in VirtualBox with an OPNsense firewall, Windows Server AD/DNS/DHCP, a domain-joined client, and an Ubuntu helpdesk running osTicket, with full technical documentation.</span><span class="btn">Explore project →</span></div></a>
-        <a class="card" href="#"><div class="body"><b>Active Directory Home Lab</b><span>Configured a Windows Server domain controller, used PowerShell to create over 1,000 user accounts, and connected a client machine to test domain logins.</span><span class="btn">Explore project →</span></div></a>
+        <a class="card" href="#" data-searchable data-search-title="Active Directory Home Lab" data-search-section="#projects"><div class="body"><b>Active Directory Home Lab</b><span>Configured a Windows Server domain controller, used PowerShell to create over 1,000 user accounts, and connected a client machine to test domain logins.</span><span class="btn">Explore project →</span></div></a>
       </div>
 
       <hr>
 
-      <section class="connect center">
-        <h2>Experience &amp; Connect</h2>
-        <p>Previous experience includes electronics and retail cashier roles at Walmart. Connect with me to discuss IT support, networking, and cybersecurity opportunities.</p>
+      <section id="ctf-machines">
+        <h2 data-searchable data-search-title="CTF Machine Writeups" data-search-section="#ctf-machines">CTF Machine Writeups</h2>
+        <p data-searchable data-search-title="Writeup topics" data-search-section="#ctf-machines">Walkthroughs will cover each machine’s reconnaissance, enumeration, exploitation, privilege escalation, and key takeaways.</p>
         <div class="grid">
-          <a class="card" href="#"><div class="body"><div class="ico"></div><b>LinkedIn</b><span>Connect with me and view my professional profile.</span><span class="btn">View profile →</span></div></a>
-          <a class="card" href="#"><div class="body"><div class="ico"></div><b>GitHub</b><span>Explore my Active Directory home lab project.</span><span class="btn">View project →</span></div></a>
-          <a class="card" href="https://app.hackthebox.com/users/3700188" target="_blank" rel="noopener noreferrer"><div class="body"><div class="ico"></div><b>Hack The Box</b><span>View my profile and cybersecurity activity.</span><span class="btn">View profile →</span></div></a>
+          <article class="card" data-searchable data-search-title="Writeups in progress" data-search-section="#ctf-machines"><div class="body"><b>Writeups in progress</b><span>Machine-by-machine walkthroughs will be added here as I complete and document them.</span></div></article>
+        </div>
+      </section>
+
+      <hr>
+
+      <section class="connect center" id="experience">
+        <h2 data-searchable data-search-title="Experience and contact" data-search-section="#experience">Experience &amp; Connect</h2>
+        <p data-searchable data-search-title="Experience" data-search-section="#experience">Previous experience includes electronics and retail cashier roles at Walmart. Connect with me to discuss networking and cybersecurity opportunities.</p>
+        <div class="grid">
+          <a class="card" href="https://www.linkedin.com/in/ali-asfourr" target="_blank" rel="noopener noreferrer" data-searchable data-search-title="LinkedIn profile" data-search-section="#experience"><div class="body"><img class="ico" src="assets/linkedin.png" alt="" aria-hidden="true"><b>LinkedIn</b><span>Connect with me and view my professional profile.</span><span class="btn">View profile →</span></div></a>
+          <a class="card" href="https://github.com/3sfour/" target="_blank" rel="noopener noreferrer" data-searchable data-search-title="GitHub profile and repositories" data-search-section="#experience"><div class="body"><img class="ico" src="assets/github.svg" alt="" aria-hidden="true"><b>GitHub</b><span>Explore my GitHub projects and repositories.</span><span class="btn">View profile →</span></div></a>
+          <a class="card" href="https://app.hackthebox.com/public/users/3700188" target="_blank" rel="noopener noreferrer" data-searchable data-search-title="Hack The Box profile" data-search-section="#experience"><div class="body"><img class="ico" src="assets/hackthebox.svg" alt="" aria-hidden="true"><b>Hack The Box</b><span>View my profile and cybersecurity activity.</span><span class="btn">View profile →</span></div></a>
         </div>
       </section>
 
       <div class="pager">
-        <a href="#"><small>Education</small>Information Technology</a>
-        <a href="#"><small>Focus</small>IT Support &amp; Cybersecurity</a>
+        <a href="#"><small>Focus</small>Cybersecurity &amp; Networking</a>
+        <a href="#"><small>Interests</small>GRC &amp; Vulnerability Management</a>
       </div>
     </main>
   </div>
 </div>
 
-<footer class="gutter"><div class="in"><span>© Ali Al-Asfour</span><span>Information Technology student at Southern Illinois University</span></div></footer>
+<footer class="gutter"><div class="in"><span>© 3sfour</span><span>Cybersecurity &amp; Networking</span></div></footer>
+
+<script>
+  const sectionNavLinks = [...document.querySelectorAll(".tabs a, .toc a")];
+
+  function setActiveSection(hash) {
+    const activeHash = sectionNavLinks.some((link) => link.hash === hash) ? hash : "#about";
+
+    sectionNavLinks.forEach((link) => {
+      const isActive = link.hash === activeHash;
+      link.classList.toggle("on", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  sectionNavLinks.forEach((link) => {
+    link.addEventListener("click", () => setActiveSection(link.hash));
+  });
+  window.addEventListener("hashchange", () => setActiveSection(window.location.hash));
+  setActiveSection(window.location.hash);
+
+  const siteSearch = document.querySelector("#site-search");
+  const searchResults = document.querySelector("#site-search-results");
+  const searchResultsList = searchResults.querySelector("ul");
+  const searchEmpty = searchResults.querySelector(".search-empty");
+  const searchableItems = [...document.querySelectorAll("[data-searchable]")];
+
+  function updateSearchResults() {
+    const query = siteSearch.value.trim().toLocaleLowerCase();
+    searchResultsList.replaceChildren();
+    searchResults.hidden = query.length === 0;
+    siteSearch.setAttribute("aria-expanded", String(query.length > 0));
+
+    if (!query) {
+      return;
+    }
+
+    const matches = searchableItems.filter((item) => {
+      const searchableText = `${item.dataset.searchTitle} ${item.textContent}`.toLocaleLowerCase();
+      return searchableText.includes(query);
+    });
+
+    matches.slice(0, 6).forEach((item) => {
+      const result = document.createElement("li");
+      const link = document.createElement("a");
+      const title = document.createElement("strong");
+      const excerpt = document.createElement("span");
+      const text = item.textContent.trim().replace(/\s+/g, " ");
+
+      link.href = item.dataset.searchSection;
+      title.textContent = item.dataset.searchTitle;
+      excerpt.textContent = text.length > 100 ? `${text.slice(0, 97)}…` : text;
+      link.append(title, excerpt);
+      result.append(link);
+      searchResultsList.append(result);
+    });
+
+    searchEmpty.hidden = matches.length > 0;
+    searchEmpty.textContent = matches.length ? "" : "No matching results.";
+  }
+
+  siteSearch.addEventListener("input", updateSearchResults);
+  searchResults.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      siteSearch.value = "";
+      updateSearchResults();
+    }
+  });
+  siteSearch.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      const firstResult = searchResultsList.querySelector("a");
+      if (firstResult) {
+        event.preventDefault();
+        firstResult.click();
+      }
+    }
+    if (event.key === "Escape") {
+      siteSearch.value = "";
+      updateSearchResults();
+      siteSearch.blur();
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    const target = event.target;
+    const isTyping = target instanceof HTMLElement &&
+      (target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName));
+
+    if (event.key === "/" && !isTyping && !event.defaultPrevented) {
+      event.preventDefault();
+      siteSearch.focus();
+    }
+  });
+</script>

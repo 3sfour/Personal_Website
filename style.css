@@ -1,11 +1,11 @@
-/* Layout: sticky header + section tabs, wide cover banner, left TOC, centered content column with card grids, footer. Black base with the original's fixed corner gradient, in white/grey, fading to black at 90%. Monochrome: --accent is white. Change --grad-from (brighter = closer to white) to adjust the gradient. */
+/* Monochrome night palette inspired by the supplied manga portrait and moonlit banner. */
 :root {
-  --bg: #1d1d1d;
-  --surface: #262626;
-  --surface-2: #2f2f2f;
-  --line: #3b3b3b;
-  --glass: rgba(29, 29, 29, .72);
-  --grad-from: #808080;
+  --bg: #090909;
+  --surface: #141414;
+  --surface-2: #1b1b1b;
+  --line: #303030;
+  --glass: rgba(9, 9, 9, .86);
+  --grad-from: #292929;
   --fg: #f5f5f5;
   --muted: #a3a3a3;
   --accent: #ffffff;
@@ -30,15 +30,28 @@ a { color: inherit; text-decoration: none; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 .bar { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 16px; padding-block: 12px; }
 .logo { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 17px; }
-.logo i { width: 28px; height: 28px; border-radius: 8px; background: var(--accent-soft); border: 1px solid var(--line); display: block; }
-.search { margin-left: auto; flex: 1; max-width: 340px; display: flex; align-items: center; gap: 8px; height: 38px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--muted); font-size: 14px; min-width: 0; }
+.logo i { width: 28px; height: 28px; flex: 0 0 28px; border-radius: 8px; background: url("assets/3sfour-avatar.png") center 42% / cover; border: 1px solid var(--line); display: block; }
+.search-wrap { position: relative; margin-left: auto; flex: 1; max-width: 340px; min-width: 0; }
+.search { width: 100%; display: flex; align-items: center; gap: 8px; height: 38px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--muted); font-size: 14px; min-width: 0; }
+.search:focus-within { border-color: #777; }
+.search input { width: 100%; min-width: 0; padding: 0; border: 0; outline: 0; background: transparent; color: var(--fg); font: inherit; }
+.search input::placeholder { color: var(--muted); opacity: 1; }
 .search kbd { margin-left: auto; font: 12px var(--mono); border: 1px solid var(--line); border-radius: 5px; padding: 0 5px; background: var(--bg); }
+.search-results { position: absolute; z-index: 40; top: calc(100% + 8px); right: 0; width: min(420px, calc(100vw - 32px)); max-height: min(60vh, 400px); overflow-y: auto; padding: 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); box-shadow: 0 12px 32px rgba(0, 0, 0, .55); }
+.search-results[hidden], .search-empty[hidden] { display: none; }
+.search-results ul { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.search-results a { display: grid; gap: 2px; padding: 10px 12px; border-radius: 8px; }
+.search-results a:hover, .search-results a:focus-visible { background: var(--surface-2); }
+.search-results a strong { font-size: 14px; font-weight: 600; }
+.search-results a span, .search-empty { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+.search-empty { padding: 10px 12px; }
 .tabs { max-width: 1280px; margin: 0 auto; display: flex; gap: 4px; overflow-x: auto; }
-.tabs a { padding: 8px 14px; font-size: 14px; font-weight: 500; color: var(--muted); border-bottom: 2px solid transparent; white-space: nowrap; }
+.tabs a { padding: 8px 14px; font-size: 14px; font-weight: 500; color: var(--muted); border-bottom: 2px solid transparent; white-space: nowrap; transition: color .15s, border-color .15s; }
+.tabs a:hover { color: var(--fg); }
 .tabs a.on { color: var(--accent); border-color: var(--accent); }
 
 /* cover */
-.cover { height: 220px; background: linear-gradient(to bottom left, var(--grad-from), var(--surface)); border-bottom: 1px solid var(--line); display: grid; place-items: center; color: var(--muted); font: 13px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.cover { height: 220px; background: linear-gradient(rgba(0, 0, 0, .22), rgba(0, 0, 0, .48)), url("assets/moonlit-banner.png") center 48% / cover, linear-gradient(to bottom left, var(--grad-from), var(--surface)); border-bottom: 1px solid var(--line); display: grid; place-items: center; color: var(--fg); font: 500 13px var(--mono); letter-spacing: .12em; text-transform: uppercase; text-shadow: 0 2px 12px #000; }
 
 /* shell */
 .shell { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 48px; padding-block: 32px 64px; }
@@ -47,12 +60,16 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .toc a.on { background: var(--accent-soft); color: var(--accent); font-weight: 500; }
 .toc a:hover { background: var(--surface); }
 main { max-width: 768px; width: 100%; margin: 0 auto; min-width: 0; }
+[id="about"], [id="projects"], [id="ctf-machines"], [id="experience"] { scroll-margin-top: 120px; }
 h1 { font-size: clamp(30px, 5vw, 40px); line-height: 1.15; letter-spacing: -.02em; margin: 0 0 16px; text-wrap: balance; }
 h2 { font-size: 26px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 12px; text-wrap: balance; }
 p { margin: 0 0 16px; max-width: 65ch; }
 .lead { color: var(--muted); font-size: 18px; }
 hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
 .eyebrow { font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.identity { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+.avatar { width: 92px; height: 92px; flex: 0 0 92px; border: 1px solid var(--line); border-radius: 50%; object-fit: cover; object-position: center 42%; filter: grayscale(1); }
+.identity h1 { margin-bottom: 0; }
 
 /* cards */
 .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin-top: 24px; }
@@ -69,7 +86,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
 .connect { background: var(--glass); border: 1px solid var(--line); border-radius: 18px; padding: 32px 20px; }
 .connect .grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); text-align: left; }
 .connect .card { background: var(--surface-2); }
-.ico { width: 36px; height: 36px; border-radius: 10px; background: var(--accent-soft); margin-bottom: 8px; }
+.ico { width: 36px; height: 36px; object-fit: contain; margin-bottom: 8px; }
 
 .pager { display: flex; gap: 16px; margin-top: 48px; flex-wrap: wrap; }
 .pager a { flex: 1; min-width: 200px; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
