@@ -51,7 +51,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .tabs a.on { color: var(--accent); border-color: var(--accent); }
 
 /* cover */
-.cover { height: 220px; background: linear-gradient(rgba(0, 0, 0, .22), rgba(0, 0, 0, .48)), url("assets/moonlit-banner.png") center 48% / cover, linear-gradient(to bottom left, var(--grad-from), var(--surface)); border-bottom: 1px solid var(--line); display: grid; place-items: center; color: var(--fg); font: 500 13px var(--mono); letter-spacing: .12em; text-transform: uppercase; text-shadow: 0 2px 12px #000; }
+.cover { height: 220px; background: linear-gradient(rgba(0, 0, 0, .22), rgba(0, 0, 0, .48)), url("assets/moonlit-banner.jpeg") center 48% / cover, linear-gradient(to bottom left, var(--grad-from), var(--surface)); border-bottom: 1px solid var(--line); display: grid; place-items: center; color: var(--fg); font: 500 13px var(--mono); letter-spacing: .12em; text-transform: uppercase; text-shadow: 0 2px 12px #000; }
 
 /* shell */
 .shell { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 48px; padding-block: 32px 64px; }
